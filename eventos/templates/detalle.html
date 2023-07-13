@@ -1,12 +1,42 @@
 {% extends 'base.html' %}
+{% load bootstrap_icons %}
+{% load static %}
 
-{% block titulo  %} {{ titulo }}{% endblock  %}
+
+{% block titulo %} {{ titulo }}{% endblock %}
 
 {# Aqui va el contenido #}
 
-{% block contenido  %}
-   
-    <h1>{{ listado.nombre }}</h1>
-    
+{% block contenido %}
 
-{% endblock contenido  %}
+<h1 class="title hidden-sm hidden-xs" style="font-weight:300"><strong>{{ listado.nombre }}</strong></h1>
+<div class="card" style="width: 18rem;">
+        <img src="{{ row.foto.url }}" />
+    <div class="card-body">
+        <h2 class="title hidden-sm hidden-xs" style="font-size: 15px;">
+            <span class="badge bg-primary">Inicio:</span>
+            {{listado.inicio}}
+        </h2>
+        <h3 class="title hidden-sm hidden-xs" style="font-size: 15px;">
+            <span class="badge bg-primary">Finaliza:</span>
+            {{listado.fin}}
+        </h3>
+        <h4 class="title hidden-sm hidden-xs" style="font-size: 15px;">
+            <span class="badge bg-primary">Precio:</span>
+            {{listado.precio}}
+        </h4>
+    </div>
+</div>
+
+<button type="button" class="btn btn-success mt-2">
+    Incluye diploma
+</button>
+    <button type="button" class="btn btn-primary mt-2">
+        {% bs_icon 'cart-x-fill' %}
+        Agregar al Carrito
+    </button>
+
+
+
+
+{% endblock contenido %}
